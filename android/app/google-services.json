@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "916334608264",
+    "firebase_url": "https://teamconnect-6467f.firebaseio.com",
+    "project_id": "teamconnect-6467f",
+    "storage_bucket": "teamconnect-6467f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916334608264:android:2d2d85c6453ae2c2c6843d",
+        "android_client_info": {
+          "package_name": "com.teamconnectny.teamconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916334608264-2kkleol6p7n4bcbsl44p55mnmnvebf64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGJZJLGeuBy10pMIpZHv8iMHgfm5mdeBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916334608264-2kkleol6p7n4bcbsl44p55mnmnvebf64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
