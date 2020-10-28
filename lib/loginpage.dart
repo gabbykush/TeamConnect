@@ -28,7 +28,7 @@ class LoginBody extends StatelessWidget {
         onPressed: (){
           Navigator.pushNamed(context, LoginSuccessPage.id);
         }, 
-        child: Text("LogIn"))
+        child: Text("Log In"))
     );
   }
 }
