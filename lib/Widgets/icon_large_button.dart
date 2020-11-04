@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:teamconnect/general/resources/dimension.dart';
+import 'package:teamconnect/general/styles/colors.dart';
 
 class _Constant {
   static const double cardCornerRadius = 20;
@@ -66,7 +69,7 @@ class _IconLargeButtonState extends State<IconLargeButton> {
                 ),
               ),
               SizedBox(width: 10),
-              Images.iconArrowRightGray,
+              //     Images.iconArrowRightGray,
               SizedBox(width: 15),
             ],
           ),
@@ -90,7 +93,7 @@ class _IconLargeButtonState extends State<IconLargeButton> {
         child: SizedBox(
           height: AppDimensions.roundButtonCompletedIconSize,
           width: AppDimensions.roundButtonCompletedIconSize,
-          child: Images.iconCompletedStep,
+          //     child: Images.iconCompletedStep,
         ),
       ),
       decoration: BoxDecoration(

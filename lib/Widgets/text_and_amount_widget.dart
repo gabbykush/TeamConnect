@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teamconnect/general/resources/dimension.dart';
+import 'package:teamconnect/general/styles/colors.dart';
 
 class _Constant {
   static const double cardCornerRadius = 5;
@@ -39,8 +41,6 @@ class TextAmountWidget extends StatefulWidget {
 class _TextAmountWidget extends State<TextAmountWidget> {
   @override
   Widget build(BuildContext context) {
-    final AppTheme appTheme = Provider.of<General>(context).activeThemeData;
-
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(_Constant.cardInsets),

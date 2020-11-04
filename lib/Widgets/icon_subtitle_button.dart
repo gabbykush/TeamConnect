@@ -1,3 +1,8 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:teamconnect/general/resources/dimension.dart';
+import 'package:teamconnect/general/styles/colors.dart';
+
 class _Constant {
   static const double cardCornerRadius = 20;
   static const double miniCardCornerRadius = 15;
@@ -52,8 +57,6 @@ class IconSubtitleButton extends StatefulWidget {
 class _IconSubtitleButton extends State<IconSubtitleButton> {
   @override
   Widget build(BuildContext context) {
-    final AppTheme appTheme = Provider.of<General>(context).activeThemeData;
-
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
@@ -138,7 +141,7 @@ class _IconSubtitleButton extends State<IconSubtitleButton> {
         child: SizedBox(
           height: AppDimensions.roundButtonCompletedIconSize,
           width: AppDimensions.roundButtonCompletedIconSize,
-          child: Images.iconCompletedStep,
+          //child: Images.iconCompletedStep,
         ),
       ),
       decoration: BoxDecoration(

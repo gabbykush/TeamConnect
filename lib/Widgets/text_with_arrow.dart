@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teamconnect/general/resources/dimension.dart';
+import 'package:teamconnect/general/styles/colors.dart';
 
 // class _Constant {
 //   static const double cardCornerRadius = 20;
@@ -78,7 +80,7 @@ class _TextWithArrow extends State<TextWithArrow> {
                     child: SizedBox(
                       height: AppDimensions.roundButtonCompletedIconSize,
                       width: AppDimensions.roundButtonCompletedIconSize,
-                      child: Images.iconLongArrowRight,
+                      child: Icon(Icons.arrow_forward),
                     ),
                   ),
                   decoration: BoxDecoration(
