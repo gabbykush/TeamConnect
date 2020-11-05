@@ -37,7 +37,6 @@ class AppDimensions {
   static const roundButtonCompletedIconSize = 16.0;
   static const textAmountIconSize = 15.0;
 
-
   static const checkBoxRadius = 2.0;
   static const checkBoxSize = 20.0;
   static const checkBoxIconSize = 8.0;
