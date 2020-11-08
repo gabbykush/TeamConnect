@@ -7,26 +7,15 @@ class _Constant {
   static const double iconBackgroundCornerRadius = 20;
 }
 
-class Items {
-  static Widget firstIcon = Icons.group as Widget;
-  static Widget secondIcon = Icons.event as Widget;
-  static Widget thirdIcon = Icons.delivery_dining as Widget;
-  static Widget forthIcon = Icons.account_circle as Widget;
-  static Widget firstIconName = "Groups" as Widget;
-  static Widget secondIconName = "Events" as Widget;
-  static Widget thirdIconName = "Food Delivery" as Widget;
-  static Widget forthIconName = "Profile" as Widget;
-}
-
-class BottomNavBar extends StatefulWidget {
-  BottomNavBar({Key key, @required index}) : super(key: key);
+class BottomNavigationConnect extends StatefulWidget {
+  BottomNavigationConnect({Key key, @required index}) : super(key: key);
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  _BottomNavigationConnect createState() => _BottomNavigationConnect();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
-  int _currentIndex = 0;
+class _BottomNavigationConnect extends State<BottomNavigationConnect> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       child: Padding(
         padding: const EdgeInsets.only(top: _Constant.cardInsets),
         child: BottomNavigationBar(
-          currentIndex: _currentIndex,
+          currentIndex: _selectedIndex,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: AppColors.primaryAccent,
           unselectedItemColor: AppColors.gray,
@@ -49,28 +38,27 @@ class _BottomNavBarState extends State<BottomNavBar> {
           backgroundColor: AppColors.secondaryAccent,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Items.firstIcon,
-              title: Items.firstIconName,
+              icon: Icon(Icons.group),
+              title: Text("Groups"),
             ),
             BottomNavigationBarItem(
-              icon: Items.secondIcon,
-              title: Items.secondIconName,
+              icon: Icon(Icons.event),
+              title: Text("Events"),
             ),
             BottomNavigationBarItem(
-              icon: Items.thirdIcon,
-              title: Items.thirdIconName,
+              icon: Icon(Icons.delivery_dining),
+              title: Text("Food Delivery"),
             ),
             BottomNavigationBarItem(
-              icon: Items.forthIcon,
-              title: Items.forthIconName,
+              icon: Icon(Icons.account_circle),
+              title: Text("Profile"),
             ),
           ],
           onTap: (index) {
             setState(() {
-              _currentIndex = index;
+              _selectedIndex = index;
             });
-
-            _onItemTapped(context, _currentIndex, index);
+            _onItemTapped(context, _selectedIndex);
           },
         ),
       ),
@@ -78,21 +66,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 }
 
-_onItemTapped(context, int index, int _currentIndex) {
+_onItemTapped(context, int index) {
   if (index == 0) {
     print('index=0');
-    //Navigator.of(context).pushNamed(Routes.groups);
+    Navigator.of(context).pushNamed(Routes.groupTab);
   }
   if (index == 1) {
     print('index=1');
-    //Navigator.of(context).pushNamed(Routes.events);
+    Navigator.of(context).pushNamed(Routes.eventsTab);
   }
   if (index == 2) {
     print('index=2');
-    //Navigator.of(context).pushNamed(Routes.foodDelivery);
+    Navigator.of(context).pushNamed(Routes.foodTab);
   }
   if (index == 3) {
     print('index=3');
-    //Navigator.of(context).pushNamed(Routes.profile);
+    Navigator.of(context).pushNamed(Routes.profileTab);
   }
 }

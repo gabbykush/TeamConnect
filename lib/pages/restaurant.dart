@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
 
-class GroupPage extends StatefulWidget {
+class FoodTabPage extends StatefulWidget {
   @override
-  _GroupPageState createState() => _GroupPageState();
+  _FoodTabPageState createState() => _FoodTabPageState();
 }
 
-class _GroupPageState extends State<GroupPage> {
+class _FoodTabPageState extends State<FoodTabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationConnect(index: 0),
+        bottomNavigationBar: BottomNavigationConnect(index: 2),
         body: SafeArea(
             child: Padding(
           padding: const EdgeInsets.only(
@@ -25,9 +25,5 @@ class _GroupPageState extends State<GroupPage> {
             ],
           ),
         )));
-  }
-
-  _buildTopNavigation() {
-    return "sto";
   }
 }
