@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
+import 'package:teamconnect/Widgets/icon_large_button.dart';
 import 'package:teamconnect/Widgets/ui_components.dart';
 import 'package:teamconnect/general/resources/app_themes.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
@@ -19,60 +19,63 @@ class _GroupsPageState extends State<GroupsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<General>(builder: (context, store, child) {
-      return Scaffold(
-          bottomNavigationBar: BottomNavigationConnect(index: 0),
-          body: SafeArea(
-              child: Padding(
-            padding: const EdgeInsets.only(
-                top: AppDimensions.defaultPadding,
-                left: AppDimensions.defaultPadding,
-                right: AppDimensions.defaultPadding),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  buildHeader(context,
-                      title: "Groups", subtitle: "Connect with people"),
-                  _buildOveviewTransactionSelector(store.activeThemeData),
-                  SizedBox(height: AppDimensions.cardsSpacing),
-                  Visibility(
-                    visible: _viewMode == UnitLinkMode.overview,
-                    child:
-                        _buildOverviewSection(store.activeThemeData, context),
-                  ),
-                  Visibility(
-                    visible: _viewMode == UnitLinkMode.transactions,
-                    child: _buildTransactionSection(store.activeThemeData),
-                  ),
-                  Visibility(
-                    visible: _viewMode == UnitLinkMode.overview,
-                    child:
-                        _buildOverviewSection(store.activeThemeData, context),
-                  ),
-                  Visibility(
-                    visible: _viewMode == UnitLinkMode.transactions,
-                    child: _buildTransactionSection(store.activeThemeData),
-                  ),
-                ],
-              ),
+    // return Consumer<General>(builder: (context, store, child) {
+    return Center(
+        child: SafeArea(
+            child: Padding(
+      padding: const EdgeInsets.only(
+          top: AppDimensions.defaultPadding,
+          left: AppDimensions.defaultPadding,
+          right: AppDimensions.defaultPadding),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            buildHeader(context,
+                title: "Groups", subtitle: "Connect with people"),
+            _buildOveviewTransactionSelector(),
+            SizedBox(height: AppDimensions.cardsSpacing),
+            Visibility(
+              visible: _viewMode == UnitLinkMode.overview,
+              child: _buildOverviewSection(),
             ),
-          )));
-    });
+            Visibility(
+              visible: _viewMode == UnitLinkMode.transactions,
+              child: _buildTransactionSection(),
+            ),
+            Visibility(
+              visible: _viewMode == UnitLinkMode.overview,
+              child: _buildOverviewSection(),
+            ),
+            Visibility(
+              visible: _viewMode == UnitLinkMode.transactions,
+              child: _buildTransactionSection(),
+            ),
+          ],
+        ),
+      ),
+    )));
+    // });
   }
 
-  _buildOverviewSection(AppTheme theme, BuildContext context) {}
-  _buildTransactionSection(AppTheme theme) {}
+  _buildOverviewSection() {
+    return Container(
+        child: Column(
+      children: [IconLargeButton(title: "Group 1", onPressed: null)],
+    ));
+  }
 
-  _buildOveviewTransactionSelector(AppTheme theme) {
+  _buildTransactionSection() {
+    return Container(
+        child: Column(
+      children: [IconLargeButton(title: "Group 1", onPressed: null)],
+    ));
+  }
+
+  _buildOveviewTransactionSelector() {
     var width =
         (MediaQuery.of(context).size.width - 2 * AppDimensions.largePadding);
-    //     2.0 -
-    // AppDimensions.smallPadding;
-
     var values = ["1", "2", "3", "4"];
-    var generalProvider = Provider.of<General>(context, listen: false);
-    return buildToggleGroup(
-        generalProvider, _unitLinkToggleSelectedIndex(), values, width,
+    return buildToggleGroup(_unitLinkToggleSelectedIndex(), values, width,
         (value) {
       setState(() {
         switch (value) {
@@ -101,6 +104,10 @@ class _GroupsPageState extends State<GroupsPage> {
         return 0;
       case UnitLinkMode.transactions:
         return 1;
+      case UnitLinkMode.overview:
+        return 2;
+      case UnitLinkMode.transactions:
+        return 3;
       default:
         return 0;
     }

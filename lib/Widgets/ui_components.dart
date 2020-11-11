@@ -157,19 +157,18 @@ Future<T> showCustomModalBottomSheet<T>({
 }
 
 Widget buildToggleGroup(
-        General generalProvider,
+        //  General generalProvider,
         int initialSelectedIndex,
         List<String> values,
         double itemMinWidth,
         onOptionSelected(int index)) =>
     ToggleSwitch(
       cornerRadius: AppDimensions.buttonCornerRadius,
-      activeBgColor: generalProvider.activeThemeData.secondaryAccentColor(),
-      activeFgColor:
-          generalProvider.activeThemeData.textSecondaryButtonStyle().color,
-      inactiveBgColor: generalProvider.activeThemeData.switchBackgroundColor(),
-      inactiveFgColor:
-          generalProvider.activeThemeData.textSecondaryButtonStyle().color,
+      activeBgColor: AppColors.primaryAccent,
+      activeFgColor: AppColors.secondaryAccent,
+      inactiveBgColor: AppColors.primaryButtonText,
+      inactiveFgColor: AppColors.secondaryAccent,
+
       // activeTextStyle: generalProvider.activeThemeData
       //     .textPrimaryButtonStyle()
       //     .copyWith(

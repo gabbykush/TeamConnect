@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:teamconnect/general/resources/font_styles.dart';
-import 'package:teamconnect/login_success_test.dart';
-import 'package:teamconnect/loginpage.dart';
-import 'package:teamconnect/pages/homepage.dart';
-import 'package:teamconnect/providers/general.dart';
 
+import 'Widgets/bottom_nav_bar.dart';
 import 'general/resources/routes.dart';
 
 void main() {
@@ -25,7 +21,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
       ),
       routes: Routes.getRoutes(),
-      home: GroupPage(),
+      home: BottomNavigationConnect(),
       // initialRoute: Routes.groupTab,
     );
   }
