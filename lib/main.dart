@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:teamconnect/general/resources/font_styles.dart';
 import 'package:teamconnect/login_success_test.dart';
 import 'package:teamconnect/loginpage.dart';
+import 'package:teamconnect/pages/login.dart';
+import 'package:teamconnect/pages/profile.dart';
 import 'package:teamconnect/registerpage.dart';
 import 'package:teamconnect/startpage.dart';
 import 'package:teamconnect/pages/homepage.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
       ),
       routes: Routes.getRoutes(),
-      home: GroupPage(),
+      home: Login(),
       // initialRoute: Routes.groupTab,
     );
   }

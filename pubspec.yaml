@@ -87,17 +87,17 @@ flutter:
 
 
 
-  fonts:
-    - family: Inter
-      fonts:
-        - asset: fonts/Inter-Regular-slnt=0.ttf
-        - asset: fonts/Inter-Medium-slnt=0.ttf
-          weight: 500
-        - asset: fonts/Inter-SemiBold-slnt=0.ttf
-          weight: 600
-        - asset: fonts/Inter-Bold-slnt=0.ttf
-          weight: 700
+  # fonts:
+  #   - family: Inter
+  #     fonts:
+  #       - asset: fonts/Inter-Regular-slnt=0.ttf
+  #       - asset: fonts/Inter-Medium-slnt=0.ttf
+  #         weight: 500
+  #       - asset: fonts/Inter-SemiBold-slnt=0.ttf
+  #         weight: 600
+  #       - asset: fonts/Inter-Bold-slnt=0.ttf
+  #         weight: 700
 
-    - family: AppIconsFont
-      fonts:
-       - asset: fonts/AppIconsFont.ttfS
+  #   - family: AppIconsFont
+  #     fonts:
+  #      - asset: fonts/AppIconsFont.ttfS
