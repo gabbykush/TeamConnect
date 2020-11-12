@@ -2,11 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:teamconnect/general/resources/app_themes.dart';
 
-enum _GeneralProviderKeys { selectedLanguage }
-
 class General with ChangeNotifier, DiagnosticableTreeMixin {
-  General() {}
-
   // PRIVATE VARS
   Locale _selectedLanguage = Locale('en');
   List<String> _availableLanguages = ['en', 'ro'];

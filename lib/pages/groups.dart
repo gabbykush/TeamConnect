@@ -19,42 +19,42 @@ class _GroupsPageState extends State<GroupsPage> {
 
   @override
   Widget build(BuildContext context) {
-    // return Consumer<General>(builder: (context, store, child) {
-    return Center(
-        child: SafeArea(
-            child: Padding(
-      padding: const EdgeInsets.only(
-          top: AppDimensions.defaultPadding,
-          left: AppDimensions.defaultPadding,
-          right: AppDimensions.defaultPadding),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            buildHeader(context,
-                title: "Groups", subtitle: "Connect with people"),
-            _buildOveviewTransactionSelector(),
-            SizedBox(height: AppDimensions.cardsSpacing),
-            Visibility(
-              visible: _viewMode == UnitLinkMode.overview,
-              child: _buildOverviewSection(),
-            ),
-            Visibility(
-              visible: _viewMode == UnitLinkMode.transactions,
-              child: _buildTransactionSection(),
-            ),
-            Visibility(
-              visible: _viewMode == UnitLinkMode.overview,
-              child: _buildOverviewSection(),
-            ),
-            Visibility(
-              visible: _viewMode == UnitLinkMode.transactions,
-              child: _buildTransactionSection(),
-            ),
-          ],
+    return Consumer<General>(builder: (context, store, child) {
+      return Center(
+          child: SafeArea(
+              child: Padding(
+        padding: const EdgeInsets.only(
+            top: AppDimensions.defaultPadding,
+            left: AppDimensions.defaultPadding,
+            right: AppDimensions.defaultPadding),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              buildHeader(context,
+                  title: "Groups", subtitle: "Connect with people"),
+              _buildOveviewTransactionSelector(),
+              SizedBox(height: AppDimensions.cardsSpacing),
+              Visibility(
+                visible: _viewMode == UnitLinkMode.overview,
+                child: _buildOverviewSection(),
+              ),
+              Visibility(
+                visible: _viewMode == UnitLinkMode.transactions,
+                child: _buildTransactionSection(),
+              ),
+              Visibility(
+                visible: _viewMode == UnitLinkMode.overview,
+                child: _buildOverviewSection(),
+              ),
+              Visibility(
+                visible: _viewMode == UnitLinkMode.transactions,
+                child: _buildTransactionSection(),
+              ),
+            ],
+          ),
         ),
-      ),
-    )));
-    // });
+      )));
+    });
   }
 
   _buildOverviewSection() {
