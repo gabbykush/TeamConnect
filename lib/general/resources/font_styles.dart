@@ -28,13 +28,13 @@ class FontStyle {
   static FontSizes fontSizes = const FontSizes();
 
   static final TextStyle titleLight = TextStyle(
-    color: AppColors.textMain,
+    color: AppColors.primaryAccent,
     fontWeight: FontWeight.w600,
     fontSize: fontSizes.titleSize,
   );
 
   static final TextStyle secondaryTitleLight = TextStyle(
-    color: AppColors.textMain,
+    color: AppColors.primaryAccent,
     fontWeight: FontWeight.w600,
     fontSize: fontSizes.secondaryTitleSize,
   );

@@ -36,7 +36,7 @@ class _BottomNavigationConnect extends State<BottomNavigationConnect> {
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColors.primaryAccent,
-        unselectedItemColor: AppColors.gray,
+        unselectedItemColor: AppColors.primaryAccent,
         selectedFontSize: 15,
         unselectedFontSize: 10,
         onTap: _onItemTap,
