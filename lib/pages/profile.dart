@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
 import 'package:teamconnect/general/resources/font_styles.dart';
@@ -9,6 +10,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final AuthService _auth = AuthService();
+
+  String error = '';
+
+  String firstName = '';
+  String lastName = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,6 +112,16 @@ class _ProfilePageState extends State<ProfilePage> {
                         //Phone number
                       ],
                     )),
+              ),
+              RaisedButton(
+                onPressed: () async {
+                  dynamic result = _auth.signOut();
+                },
+                color: Colors.yellow[600],
+                child: Text(
+                  "Log Out",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),

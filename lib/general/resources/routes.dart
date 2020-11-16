@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:teamconnect/pages/events.dart';
 import 'package:teamconnect/pages/homepage.dart';
+import 'package:teamconnect/pages/login.dart';
 import 'package:teamconnect/pages/profile.dart';
+import 'package:teamconnect/pages/register.dart';
 import 'package:teamconnect/pages/restaurant.dart';
 
 class Routes {
@@ -10,6 +12,8 @@ class Routes {
   static const String eventsTab = '/events';
   static const String foodTab = '/restaurant';
   static const String profileTab = '/profile';
+  static const String login = '/login';
+  static const String register = "/register";
 
   static Map<String, WidgetBuilder> getRoutes() {
     return {
@@ -17,6 +21,8 @@ class Routes {
       eventsTab: (context) => EventPage(),
       foodTab: (context) => FoodTabPage(),
       profileTab: (context) => ProfilePage(),
+      login: (context) => Login(),
+      register: (context) => Register(),
     };
   }
 }

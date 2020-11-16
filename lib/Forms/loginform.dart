@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:teamconnect/Authentication/auth.dart';
+import 'package:teamconnect/general/resources/routes.dart';
+import 'package:teamconnect/pages/profile.dart';
 import 'package:teamconnect/pages/register.dart';
 
 import '../pages/login.dart';
@@ -16,6 +19,14 @@ class _LoginFormState extends State<LoginForm> {
     });
   }
 
+  final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+
+  String email = '';
+  String password = '';
+
+  String error = '';
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -23,18 +34,32 @@ class _LoginFormState extends State<LoginForm> {
       children: [
         loginPadding(TextFormField(
           decoration: loginDecoration("Email"),
+          validator: (value) => value.isEmpty ? 'Enter email' : null,
+          onChanged: (value) => email = value,
         )),
         loginPadding(TextFormField(
           decoration: loginDecoration("Password"),
+          validator: (value) => value.isEmpty ? 'Enter password' : null,
+          onChanged: (value) => password = value,
         )),
         RaisedButton(
-          onPressed: () {},
+          onPressed: () async {
+            if (_formKey.currentState.validate()) {
+              dynamic result = await _auth.login(email, password);
+              if (result == null) {
+                setState(() {
+                  error = 'Email/password is incorrect';
+                });
+              }
+            }
+          },
           color: Colors.yellow[600],
           child: Text(
             "Log In",
             style: TextStyle(color: Colors.white),
           ),
         ),
+        Text(error),
         SizedBox(
           height: 50,
         ),
@@ -52,7 +77,9 @@ class _LoginFormState extends State<LoginForm> {
               height: 30,
               width: 80,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.register);
+                },
                 child: Text(
                   "Click to Register",
                   style: TextStyle(fontSize: 10),
