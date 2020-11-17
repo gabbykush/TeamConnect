@@ -30,67 +30,70 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+        key: _formKey,
         child: Column(
-      children: [
-        loginPadding(TextFormField(
-          decoration: loginDecoration("Email"),
-          validator: (value) => value.isEmpty ? 'Enter email' : null,
-          onChanged: (value) => email = value,
-        )),
-        loginPadding(TextFormField(
-          decoration: loginDecoration("Password"),
-          validator: (value) => value.isEmpty ? 'Enter password' : null,
-          onChanged: (value) => password = value,
-        )),
-        RaisedButton(
-          onPressed: () async {
-            if (_formKey.currentState.validate()) {
-              dynamic result = await _auth.login(email, password);
-              if (result == null) {
-                setState(() {
-                  error = 'Email/password is incorrect';
-                });
-              }
-            }
-          },
-          color: Colors.yellow[600],
-          child: Text(
-            "Log In",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-        Text(error),
-        SizedBox(
-          height: 50,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Don't have an account",
-              style: TextStyle(fontSize: 10),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Container(
-              height: 30,
-              width: 80,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.register);
-                },
-                child: Text(
-                  "Click to Register",
-                  style: TextStyle(fontSize: 10),
-                  textAlign: TextAlign.center,
-                ),
+            loginPadding(TextFormField(
+              decoration: loginDecoration("Email"),
+              validator: (value) => value.isEmpty ? 'Enter email' : null,
+              onChanged: (value) => email = value,
+            )),
+            loginPadding(TextFormField(
+              decoration: loginDecoration("Password"),
+              validator: (value) => value.isEmpty ? 'Enter password' : null,
+              onChanged: (value) => password = value,
+            )),
+            RaisedButton(
+              onPressed: () async {
+                if (_formKey.currentState.validate()) {
+                  dynamic result = await _auth.login(email, password);
+                  if (result == null) {
+                    setState(() {
+                      error = 'Email/password is incorrect';
+                    });
+                  } else {
+                    //Navigator.pop(context);
+                  }
+                }
+              },
+              color: Colors.yellow[600],
+              child: Text(
+                "Log In",
+                style: TextStyle(color: Colors.white),
               ),
+            ),
+            Text(error),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account",
+                  style: TextStyle(fontSize: 10),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 30,
+                  width: 80,
+                  child: RaisedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.register);
+                    },
+                    child: Text(
+                      "Click to Register",
+                      style: TextStyle(fontSize: 10),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                )
+              ],
             )
           ],
-        )
-      ],
-    ));
+        ));
   }
 }
 

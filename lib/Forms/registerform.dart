@@ -98,7 +98,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       error = "Email already in use";
                     });
                   } else {
-                    Navigator.pushNamed(context, Routes.profileTab);
+                    Navigator.pop(context);
                   }
                 }
               },

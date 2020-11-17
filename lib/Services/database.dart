@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'collections.dart';
 
 class DatabaseService {
   final String uid;
@@ -39,8 +40,46 @@ class DatabaseService {
 
   //-------------------------------------------------------------
 
+  //Streams
+  //Account
+  Stream<Account> get account {
+    return accountCollection
+        .document(uid)
+        .snapshots()
+        .map(_accountListFromSnapshot);
+  }
+
   //Profile
-  Future getData() async {
-    profileCollection.document().get();
+  Stream<Profile> get profile {
+    return profileCollection
+        .document(uid)
+        .snapshots()
+        .map(_profileListFromSnapshot);
+  }
+
+  //-------------------------------------------------------------
+
+  //Get Documents
+  //Account
+  Account _accountListFromSnapshot(DocumentSnapshot snapshot) {
+    return Account(
+      uid: uid,
+      firstName: snapshot.data["firstName"] ?? '',
+      lastName: snapshot.data["lastName"] ?? '',
+      phone: snapshot.data["phone"] ?? 0,
+    );
+  }
+
+  //Profle
+  Profile _profileListFromSnapshot(DocumentSnapshot snapshot) {
+    return Profile(
+      uid: uid,
+      imageUrl: snapshot.data['imageUrl'] ?? 'Insert image here',
+      institution: snapshot.data['institution'] ?? '',
+      major: snapshot.data['major'] ?? '',
+      year: snapshot.data['year'] ?? '',
+      birthLoc: snapshot.data['birthLocation'] ?? '',
+      currentLoc: snapshot.data['currentLocation'] ?? '',
+    );
   }
 }

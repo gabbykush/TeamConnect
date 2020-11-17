@@ -43,6 +43,7 @@ class AuthService {
       FirebaseUser user = result.user;
       DatabaseService(uid: user.uid)
           .updateAccountData(firstName, lastName, phone);
+      DatabaseService(uid: user.uid).updateProfileData("", "", "", "", "", "");
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
@@ -58,6 +59,10 @@ class AuthService {
       print(e.toString());
       return null;
     }
+  }
+
+  Future<String> getEmail() async {
+    return await _auth.currentUser().then((value) => value.email);
   }
 }
 
