@@ -301,12 +301,16 @@ class _FoodTabPageState extends State<FoodTabPage> {
     return Align(
         alignment: Alignment.bottomRight,
         child: RaisedButton(
-          color: Colors.black,
+          onPressed:(){
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>FoodTabPage()));
+          },
+          color: Colors.white,
           child: Text(
             "Open",
           ),
-          onPressed: null,
-        ));
+          
+        )
+        );
   }
 }
 
