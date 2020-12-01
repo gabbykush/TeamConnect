@@ -76,10 +76,9 @@ class _FoodTabPageState extends State<FoodTabPage> {
                 ),
               ),
             ),
-                    
-                    
-                 //   Mcdonalds
-                    Container(
+
+            //   Mcdonalds
+            Container(
               padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
               height: 250,
               width: double.maxFinite,
@@ -136,13 +135,10 @@ class _FoodTabPageState extends State<FoodTabPage> {
                   ]),
                 ),
               ),
-            ),         
-            
-            
-            
-            
+            ),
+
             //hells kitchken
-             Container(
+            Container(
               padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
               height: 250,
               width: double.maxFinite,
@@ -199,15 +195,10 @@ class _FoodTabPageState extends State<FoodTabPage> {
                   ]),
                 ),
               ),
-            ),],
+            ),
+          ],
         ),
       ),
-
-
-
-
-
-      
     ));
   }
 
@@ -316,205 +307,199 @@ class _FoodTabPageState extends State<FoodTabPage> {
 
 //2nd one
 Widget restIcon2() {
-    return Padding(
-        padding: const EdgeInsets.only(left: 15.0),
-        child: Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(
-              Icons.restaurant,
-              size: 40,
-            )));
-  }
+  return Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: Align(
+          alignment: Alignment.centerLeft,
+          child: Icon(
+            Icons.restaurant,
+            size: 40,
+          )));
+}
 
-  Widget restName2() {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: RichText(
-        text: TextSpan(
-          text: "McDonalds",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
-          children: <TextSpan>[
-            TextSpan(
-                text: "\nfast food",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold)),
-          ],
-        ),
+Widget restName2() {
+  return Align(
+    alignment: Alignment.topLeft,
+    child: RichText(
+      text: TextSpan(
+        text: "McDonalds",
+        style: TextStyle(
+            fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
+        children: <TextSpan>[
+          TextSpan(
+              text: "\nfast food",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold)),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 
-  Widget phoneNumber2() {
-    return Align(
-      alignment: Alignment.center,
-      child: RichText(
-        text: TextSpan(
-          text: "111-222-3333",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
-          children: <TextSpan>[
-            TextSpan(
-                text: '\n45 Miles away',
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold)),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget phoneIcon2() {
-    return Align(
-        alignment: Alignment.bottomRight,
-        child: Icon(
-          Icons.phone,
-          color: Colors.green,
-          size: 30,
-        ));
-  }
-
-  Widget locationAddress2() {
-    return Align(
-      alignment: Alignment.center,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Row(
-          children: <Widget>[
-            RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
-                text: "\n17-69 45th street",
-                style: TextStyle(
-                  color: Colors.black,
+Widget phoneNumber2() {
+  return Align(
+    alignment: Alignment.center,
+    child: RichText(
+      text: TextSpan(
+        text: "111-222-3333",
+        style: TextStyle(
+            fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
+        children: <TextSpan>[
+          TextSpan(
+              text: '\n45 Miles away',
+              style: TextStyle(
+                  color: Colors.green,
                   fontSize: 10,
-                ),
+                  fontWeight: FontWeight.bold)),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget phoneIcon2() {
+  return Align(
+      alignment: Alignment.bottomRight,
+      child: Icon(
+        Icons.phone,
+        color: Colors.green,
+        size: 30,
+      ));
+}
+
+Widget locationAddress2() {
+  return Align(
+    alignment: Alignment.center,
+    child: Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: Row(
+        children: <Widget>[
+          RichText(
+            textAlign: TextAlign.left,
+            text: TextSpan(
+              text: "\n17-69 45th street",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget openRest2() {
-    return Align(
-        alignment: Alignment.bottomRight,
-        child: RaisedButton(
-          color: Colors.black,
-          child: Text(
-            "Open",
           ),
-          onPressed: null,
-        ));
-  }
+        ],
+      ),
+    ),
+  );
+}
 
-
-
+Widget openRest2() {
+  return Align(
+      alignment: Alignment.bottomRight,
+      child: RaisedButton(
+        color: Colors.black,
+        child: Text(
+          "Open",
+        ),
+        onPressed: null,
+      ));
+}
 
 //#3
 
-
-
 Widget restIcon3() {
-    return Padding(
-        padding: const EdgeInsets.only(left: 15.0),
-        child: Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(
-              Icons.restaurant,
-              size: 40,
-            )));
-  }
+  return Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: Align(
+          alignment: Alignment.centerLeft,
+          child: Icon(
+            Icons.restaurant,
+            size: 40,
+          )));
+}
 
-  Widget restName3() {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: RichText(
-        text: TextSpan(
-          text: "Hell's Kitchen",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
-          children: <TextSpan>[
-            TextSpan(
-                text: "\nfancy",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold)),
-          ],
-        ),
+Widget restName3() {
+  return Align(
+    alignment: Alignment.topLeft,
+    child: RichText(
+      text: TextSpan(
+        text: "Hell's Kitchen",
+        style: TextStyle(
+            fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
+        children: <TextSpan>[
+          TextSpan(
+              text: "\nfancy",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold)),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 
-  Widget phoneNumber3() {
-    return Align(
-      alignment: Alignment.center,
-      child: RichText(
-        text: TextSpan(
-          text: "321-654-1234",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
-          children: <TextSpan>[
-            TextSpan(
-                text: '\n7.5 Miles away',
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold)),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget phoneIcon3() {
-    return Align(
-        alignment: Alignment.bottomRight,
-        child: Icon(
-          Icons.phone,
-          color: Colors.green,
-          size: 30,
-        ));
-  }
-
-  Widget locationAddress3() {
-    return Align(
-      alignment: Alignment.center,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Row(
-          children: <Widget>[
-            RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
-                text: "\n douglas street",
-                style: TextStyle(
-                  color: Colors.black,
+Widget phoneNumber3() {
+  return Align(
+    alignment: Alignment.center,
+    child: RichText(
+      text: TextSpan(
+        text: "321-654-1234",
+        style: TextStyle(
+            fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
+        children: <TextSpan>[
+          TextSpan(
+              text: '\n7.5 Miles away',
+              style: TextStyle(
+                  color: Colors.green,
                   fontSize: 10,
-                ),
+                  fontWeight: FontWeight.bold)),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget phoneIcon3() {
+  return Align(
+      alignment: Alignment.bottomRight,
+      child: Icon(
+        Icons.phone,
+        color: Colors.green,
+        size: 30,
+      ));
+}
+
+Widget locationAddress3() {
+  return Align(
+    alignment: Alignment.center,
+    child: Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: Row(
+        children: <Widget>[
+          RichText(
+            textAlign: TextAlign.left,
+            text: TextSpan(
+              text: "\n douglas street",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget openRest3() {
-    return Align(
-        alignment: Alignment.bottomRight,
-        child: RaisedButton(
-          color: Colors.black,
-          child: Text(
-            "Open",
           ),
-          onPressed: null,
-        ));
-  }
+        ],
+      ),
+    ),
+  );
+}
 
+Widget openRest3() {
+  return Align(
+      alignment: Alignment.bottomRight,
+      child: RaisedButton(
+        color: Colors.black,
+        child: Text(
+          "Open",
+        ),
+        onPressed: null,
+      ));
+}

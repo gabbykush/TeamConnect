@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teamconnect/pages/events.dart';
 import 'package:teamconnect/pages/homepage.dart';
 import 'package:teamconnect/pages/profile.dart';
-import 'package:teamconnect/pages/restaurant.dart';
+import 'package:teamconnect/pages/food/restaurant.dart';
 
 class Routes {
   Routes._();
