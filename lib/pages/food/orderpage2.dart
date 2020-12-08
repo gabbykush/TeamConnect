@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp222/pages/list.dart';
+import 'package:flutterapp222/pages/restaurant.dart';
 import 'package:flutterapp222/pages/paymentoption.dart';
 
 //import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
@@ -12,7 +12,7 @@ final priceTextStyle = TextStyle(
 );
 
 class FoodCheckoutOnePage extends StatelessWidget {
-  //static final String path = "lib/src/pages/food/food_checkout.dart";
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

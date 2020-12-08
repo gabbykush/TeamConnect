@@ -2,17 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutterapp222/pages/orderpage2.dart';
-import 'package:flutterapp222/pages/list.dart';
+import 'package:flutterapp222/pages/restaurant.dart';
 
 //import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 //import 'package:teamconnect/general/resources/dimension.dart';
 
-class FoodTabPage extends StatefulWidget {
+
+
+class FoodMenu extends StatefulWidget {
   @override
-  _FoodTabPageState createState() => _FoodTabPageState();
+  _FoodMenuState createState() => _FoodMenuState();
 }
 
-class _FoodTabPageState extends State<FoodTabPage> {
+class _FoodMenuState extends State<FoodMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

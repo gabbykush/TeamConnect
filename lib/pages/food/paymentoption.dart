@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutterapp222/pages/creditcard.dart';
 import 'package:flutterapp222/pages/orderpage2.dart';
-import 'package:flutterapp222/pages/list.dart';
+import 'package:flutterapp222/pages/restaurant.dart';
+import 'package:flutterapp222/pages/cash.dart';
 
 class Payment extends StatelessWidget {
-  //static final String path = "lib/src/pages/lists/list1.dart";
+  //pay Cash or Credit option page
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class Payment extends StatelessWidget {
           Container(child: Text("Select Payment Option", style: TextStyle(fontSize: 38),)),
           GestureDetector(onDoubleTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Payment()));
+                            MaterialPageRoute(builder: (context) => Cash()));
                       },
                                   child: Padding(
                       padding:
@@ -53,7 +54,7 @@ class Payment extends StatelessWidget {
 
                   GestureDetector(onDoubleTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Payment()));
+                            MaterialPageRoute(builder: (context) => Credit()));
                       },
                                   child: Padding(
                       padding:
