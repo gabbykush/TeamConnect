@@ -6,6 +6,7 @@ import 'package:teamconnect/Widgets/icon_large_button.dart';
 import 'package:teamconnect/Widgets/ui_components.dart';
 import 'package:teamconnect/general/resources/app_themes.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
+import 'package:teamconnect/general/resources/routes.dart';
 import 'package:teamconnect/general/styles/colors.dart';
 import 'package:teamconnect/providers/general.dart';
 
@@ -14,10 +15,8 @@ class GroupsPage extends StatefulWidget {
   _GroupsPageState createState() => _GroupsPageState();
 }
 
-enum UnitLinkMode { overview, transactions, overview1, transactions1 }
-
 class _GroupsPageState extends State<GroupsPage> {
-  UnitLinkMode _viewMode = UnitLinkMode.overview;
+  ViewMode _viewMode = ViewMode.classes;
   List<IconLargeButton> _groups = List<IconLargeButton>();
   List<IconLargeButton> _groupsForDisplay = List<IconLargeButton>();
 
@@ -25,7 +24,7 @@ class _GroupsPageState extends State<GroupsPage> {
   Widget build(BuildContext context) {
     return Consumer<General>(builder: (context, store, child) {
       return Container(
-          decoration: BoxDecoration(color: AppColors.lightBlue),
+          decoration: BoxDecoration(color: AppColors.primaryAccent),
           child: SafeArea(
               child: Padding(
             padding: const EdgeInsets.only(
@@ -39,23 +38,25 @@ class _GroupsPageState extends State<GroupsPage> {
                 children: [
                   buildHeader(context,
                       title: "Groups", subtitle: "Connect with people"),
+                  SizedBox(height: AppDimensions.cardsSpacing),
                   _searchBar(),
-                  _buildOveviewTransactionSelector(),
+                  SizedBox(height: AppDimensions.cardsSpacing),
+                  _buildToggleSelector(),
                   SizedBox(height: AppDimensions.cardsSpacing),
                   Visibility(
-                    visible: _viewMode == UnitLinkMode.overview,
+                    visible: _viewMode == ViewMode.classes,
                     child: _buildOverviewSection(),
                   ),
                   Visibility(
-                    visible: _viewMode == UnitLinkMode.transactions,
+                    visible: _viewMode == ViewMode.clubs,
                     child: _buildTransactionSection(),
                   ),
                   Visibility(
-                    visible: _viewMode == UnitLinkMode.overview1,
+                    visible: _viewMode == ViewMode.national,
                     child: _buildOverview1Section(),
                   ),
                   Visibility(
-                    visible: _viewMode == UnitLinkMode.transactions1,
+                    visible: _viewMode == ViewMode.international,
                     child: _buildTransaction1Section(),
                   ),
                   AddAnotherButton(title: "Create Group", onPressed: null),
@@ -69,19 +70,24 @@ class _GroupsPageState extends State<GroupsPage> {
   }
 
   _searchBar() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextField(
-        decoration: InputDecoration(hintText: 'Search groups..'),
-        onChanged: (text) {
-          text = text.toLowerCase();
-          setState(() {
-            _groupsForDisplay = _groups.where((note) {
-              var noteTitle = note.title.toLowerCase();
-              return noteTitle.contains(text);
-            }).toList();
-          });
-        },
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(12))),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          decoration: InputDecoration(hintText: 'Search groups..'),
+          onChanged: (text) {
+            text = text.toLowerCase();
+            setState(() {
+              _groupsForDisplay = _groups.where((note) {
+                var noteTitle = note.title.toLowerCase();
+                return noteTitle.contains(text);
+              }).toList();
+            });
+          },
+        ),
       ),
     );
   }
@@ -91,8 +97,50 @@ class _GroupsPageState extends State<GroupsPage> {
         child: Column(
       children: [
         IconLargeButton(
-          title: "Group 1",
+          title: "Chem Class",
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.chatScreen);
+          },
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Bio class",
           onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Comp Sci class",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Math 310 class",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Architecture class",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+      ],
+    ));
+  }
+
+  _buildTransactionSection() {
+    return Container(
+        child: Column(
+      children: [
+        IconLargeButton(
+          title: "Chem Class",
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.chatScreen);
+          },
           icon: Icon(Icons.group),
         ),
         SizedBox(height: AppDimensions.cardsSpacing),
@@ -124,49 +172,94 @@ class _GroupsPageState extends State<GroupsPage> {
     ));
   }
 
-  _buildTransactionSection() {
-    return Container(
-        child: Column(
-      children: [IconLargeButton(title: "Group 2", onPressed: null)],
-    ));
-  }
-
   _buildOverview1Section() {
     return Container(
         child: Column(
-      children: [IconLargeButton(title: "Group 3", onPressed: null)],
+      children: [
+        IconLargeButton(
+            icon: Icon(Icons.group), title: "Group 3", onPressed: null),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+      ],
     ));
   }
 
   _buildTransaction1Section() {
     return Container(
         child: Column(
-      children: [IconLargeButton(title: "Group 4", onPressed: null)],
+      children: [
+        IconLargeButton(
+          title: "Group 4",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+        IconLargeButton(
+          title: "Group 1",
+          onPressed: null,
+          icon: Icon(Icons.group),
+        ),
+        SizedBox(height: AppDimensions.cardsSpacing),
+      ],
     ));
   }
 
-  _buildOveviewTransactionSelector() {
+  _buildToggleSelector() {
     var generalProvider = Provider.of<General>(context, listen: false);
 
     var width =
         (MediaQuery.of(context).size.width - 2 * AppDimensions.largePadding);
     var values = ["1", "2", "3", "4"];
     return buildToggleGroup(
-        generalProvider, _unitLinkToggleSelectedIndex(), values, width,
-        (value) {
+        generalProvider, toggleSelectedIndex(), values, width, (value) {
       setState(() {
         switch (value) {
           case 0:
-            _viewMode = UnitLinkMode.overview;
+            _viewMode = ViewMode.classes;
             break;
           case 1:
-            _viewMode = UnitLinkMode.transactions;
+            _viewMode = ViewMode.clubs;
             break;
           case 2:
-            _viewMode = UnitLinkMode.overview1;
+            _viewMode = ViewMode.national;
             break;
           case 3:
-            _viewMode = UnitLinkMode.transactions1;
+            _viewMode = ViewMode.international;
             break;
           default:
             break;
@@ -175,32 +268,20 @@ class _GroupsPageState extends State<GroupsPage> {
     });
   }
 
-  int _unitLinkToggleSelectedIndex() {
+  int toggleSelectedIndex() {
     switch (_viewMode) {
-      case UnitLinkMode.overview:
+      case ViewMode.classes:
         return 0;
-      case UnitLinkMode.transactions:
+      case ViewMode.clubs:
         return 1;
-      case UnitLinkMode.overview1:
+      case ViewMode.national:
         return 2;
-      case UnitLinkMode.transactions1:
+      case ViewMode.international:
         return 3;
       default:
         return 0;
     }
   }
-
-  //   Align _buildTopNavigation() {
-  //   return Align(
-  //     alignment: Alignment.topLeft,
-  //     child: IconButton(
-  //       padding: EdgeInsets.all(AppDimensions.smallPadding),
-  //       icon: Icon(Icons.arrow_back),
-  //       onPressed: () {
-  //         Navigator.of(context).pop();
-  //       },
-  //     ),
-  //   );
-  // }
-
 }
+
+enum ViewMode { classes, clubs, national, international }

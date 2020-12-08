@@ -40,7 +40,7 @@ class _BottomNavigationConnect extends State<BottomNavigationConnect> {
         selectedFontSize: 15,
         unselectedFontSize: 10,
         onTap: _onItemTap,
-        backgroundColor: AppColors.secondaryAccent,
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.group),

@@ -64,49 +64,46 @@ Consumer buildHeader(
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.secondaryAccent,
-          borderRadius: BorderRadius.circular(AppDimensions.modalRadius),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              height: 10.0,
-              width: 10,
-              color: AppColors.secondaryAccent,
-            ),
-            Text(
-              title,
-              style: store.activeThemeData.textTitleStyle(),
-            ),
-            Container(
-              height: 10.0,
-              width: 1000.0,
-              color: AppColors.secondaryAccent,
-            ),
-            Container(
-              height: 2.0,
-              width: 300.0,
-              color: AppColors.primaryAccent,
-            ),
-            Container(
-              height: 15.0,
-              width: 1000.0,
-              color: AppColors.secondaryAccent,
-            ),
-            Visibility(
-              visible: subtitle.isNotEmpty,
-              child: _buildSubtitle(
-                  subtitle, subtitleActionText, onSubtitleActionTextPressed),
-            ),
-            SizedBox(height: AppDimensions.smallMargin),
-            SizedBox(height: AppDimensions.smallMargin),
-          ],
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.secondaryAccent,
+        borderRadius: BorderRadius.circular(AppDimensions.modalRadius),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 10.0,
+            width: 10,
+            color: AppColors.secondaryAccent,
+          ),
+          Text(
+            title,
+            style: store.activeThemeData.textTitleStyle(),
+          ),
+          Container(
+            height: 10.0,
+            width: 1000.0,
+            color: AppColors.secondaryAccent,
+          ),
+          Container(
+            height: 2.0,
+            width: 300.0,
+            color: AppColors.primaryAccent,
+          ),
+          Container(
+            height: 15.0,
+            width: 1000.0,
+            color: AppColors.secondaryAccent,
+          ),
+          Visibility(
+            visible: subtitle.isNotEmpty,
+            child: _buildSubtitle(
+                subtitle, subtitleActionText, onSubtitleActionTextPressed),
+          ),
+          SizedBox(height: AppDimensions.smallMargin),
+          SizedBox(height: AppDimensions.smallMargin),
+        ],
       ),
     );
   });

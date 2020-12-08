@@ -26,10 +26,9 @@ class AddAnotherButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme appTheme = Provider.of<General>(context).activeThemeData;
-
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.secondaryAccent,
+          color: Colors.white,
           border:
               Border.all(color: AppColors.gray, width: _Constant.borderWidth),
           borderRadius:
