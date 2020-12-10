@@ -42,6 +42,7 @@ class _LoginFormState extends State<LoginForm> {
               decoration: loginDecoration("Password"),
               validator: (value) => value.isEmpty ? 'Enter password' : null,
               onChanged: (value) => password = value,
+              obscureText: true,
             )),
             RaisedButton(
               onPressed: () async {

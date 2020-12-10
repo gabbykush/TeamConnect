@@ -27,8 +27,10 @@ class _RegisterState extends State<Register> {
         title: Text('Register'),
         centerTitle: true,
       ),
-      body: Container(
-        child: RegisterForm(),
+      body: SingleChildScrollView(
+        child: Container(
+          child: RegisterForm(),
+        ),
       ),
     );
   }

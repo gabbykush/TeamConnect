@@ -112,20 +112,20 @@ class _RegisterFormState extends State<RegisterForm> {
             SizedBox(
               height: 50,
             ),
-            Container(
-              height: 30,
-              width: 80,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "Back to Login",
-                  style: TextStyle(fontSize: 10),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            )
+            // Container(
+            //   height: 30,
+            //   width: 80,
+            //   child: RaisedButton(
+            //     onPressed: () {
+            //       Navigator.pop(context);
+            //     },
+            //     child: Text(
+            //       "Back to Login",
+            //       style: TextStyle(fontSize: 10),
+            //       textAlign: TextAlign.center,
+            //     ),
+            //   ),
+            // )
           ],
         ));
   }

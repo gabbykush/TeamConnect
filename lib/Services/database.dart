@@ -82,4 +82,22 @@ class DatabaseService {
       currentLoc: snapshot.data['currentLocation'] ?? '',
     );
   }
+
+//-------------------------------------------------------------
+
+//check if profile document exists
+  Future<bool> checkIfProfileExists() async {
+    bool exists;
+    try {
+      await profileCollection.document(uid).get().then((doc) {
+        if (doc.exists)
+          exists = true;
+        else
+          exists = false;
+      });
+      return exists;
+    } catch (e) {
+      return false;
+    }
+  }
 }

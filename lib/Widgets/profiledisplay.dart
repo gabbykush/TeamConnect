@@ -6,6 +6,8 @@ import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/Forms/profileform.dart';
 import 'package:teamconnect/Services/collections.dart';
 import 'package:teamconnect/Services/database.dart';
+import 'package:teamconnect/general/resources/routes.dart';
+import 'package:teamconnect/pages/profilesettings.dart';
 
 class ProfileDisplay extends StatefulWidget {
   @override
@@ -36,9 +38,7 @@ class _ProfileDisplayState extends State<ProfileDisplay> {
         builder: (context, snapshot) {
           Profile userProfile = snapshot.data;
 
-          String profilePic = userProfile.imageUrl != ''
-              ? userProfile.imageUrl
-              : 'lib/assets/icon-profile-22.jpg';
+          String profilePic = 'lib/assets/icon-profile-22.jpg';
 
           return Column(
             children: [
@@ -60,7 +60,7 @@ class _ProfileDisplayState extends State<ProfileDisplay> {
                   //Change Profile Settings Button
                   TextButton(
                       onPressed: () {
-                        return _profileSettings();
+                        Navigator.of(context).pushNamed(Routes.profileSettings);
                       },
                       child: Icon(
                         Icons.settings,
@@ -106,6 +106,7 @@ class _GetNameState extends State<GetName> {
             return Text(userAccount.firstName + ' ' + userAccount.lastName,
                 style: TextStyle(fontSize: 30, color: Colors.black));
           }
+          return Text("");
         });
   }
 }
@@ -160,6 +161,7 @@ class _ProfileCardState extends State<ProfileCard> {
               ),
             );
           }
+          return Card();
         });
   }
 }
@@ -172,6 +174,16 @@ class AccountCard extends StatefulWidget {
 }
 
 class _AccountCardState extends State<AccountCard> {
+  final _auth = AuthService();
+  Future<String> email;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    email = _auth.getEmail();
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -181,39 +193,47 @@ class _AccountCardState extends State<AccountCard> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             Account account = snapshot.data;
-            return Card(
-              color: Colors.white,
-              margin: EdgeInsets.all(10),
-              child: Container(
-                  height: 80,
-                  child: Row(
-                    children: [
-                      //Email
-                      Container(
-                        margin: EdgeInsets.all(15),
+            return FutureBuilder<String>(
+                future: email,
+                builder: (context, emailSnapshot) {
+                  return Card(
+                    color: Colors.white,
+                    margin: EdgeInsets.all(10),
+                    child: Container(
+                        height: 80,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.mail),
-                            Text("Email"),
+                            //Email
+                            Container(
+                              margin: EdgeInsets.all(15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.mail),
+                                  emailSnapshot.hasData
+                                      ? Text(emailSnapshot.data)
+                                      : Text("no email?"),
+                                ],
+                              ),
+                            ),
+                            //Phone Number
+                            Container(
+                              margin: EdgeInsets.all(15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.phone),
+                                  Text(account.phone.toString()),
+                                ],
+                              ),
+                            )
+                            //Phone number
                           ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.phone),
-                            Text(account.phone.toString()),
-                          ],
-                        ),
-                      )
-                      //Phone number
-                    ],
-                  )),
-            );
+                        )),
+                  );
+                });
           }
+          return Card();
         });
   }
 }

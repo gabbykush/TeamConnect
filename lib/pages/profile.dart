@@ -4,6 +4,7 @@ import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/Services/collections.dart';
 import 'package:teamconnect/Services/database.dart';
 import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
+import 'package:teamconnect/Widgets/loading_screen.dart';
 import 'package:teamconnect/Widgets/profiledisplay.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
 import 'package:teamconnect/general/resources/font_styles.dart';

@@ -1,15 +1,16 @@
 import 'dart:io';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfilePicPicker extends StatefulWidget {
+class ProfileImage extends StatefulWidget {
   @override
-  _ProfilePicPickerState createState() => _ProfilePicPickerState();
+  _ProfileImageState createState() => _ProfileImageState();
 }
 
-class _ProfilePicPickerState extends State<ProfilePicPicker> {
-  File _image;
+class _ProfileImageState extends State<ProfileImage> {
+  PickedFile _image;
   final picker = ImagePicker();
 
   Future getImage() async {
@@ -17,7 +18,7 @@ class _ProfilePicPickerState extends State<ProfilePicPicker> {
 
     setState(() {
       if (pickedFile != null) {
-        _image = File(pickedFile.path);
+        _image = PickedFile(pickedFile.path);
       } else {
         print('No image selected.');
       }
@@ -26,9 +27,8 @@ class _ProfilePicPickerState extends State<ProfilePicPicker> {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      onPressed: () {},
-      child: Text('Pick a New Picture'),
-    );
+    getImage();
+    print(_image);
+    return null;
   }
 }

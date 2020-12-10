@@ -15,23 +15,25 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan[50],
+      //backgroundColor: Colors.cyan[50],
       appBar: AppBar(
-        backgroundColor: Colors.yellow[600],
+        // backgroundColor: Colors.yellow[600],
         title: Text('Sign In'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Container(
-              margin: EdgeInsets.all(50),
-              child: Center(child: Text("ConnectNY Logo")),
-              width: 150,
-              height: 100,
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black))),
-          LoginForm(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+                margin: EdgeInsets.all(50),
+                child: Center(child: Text("ConnectNY Logo")),
+                width: 150,
+                height: 100,
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black))),
+            LoginForm(),
+          ],
+        ),
       ),
     );
   }
