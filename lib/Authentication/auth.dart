@@ -66,6 +66,12 @@ class AuthService {
     await _auth.currentUser().then((value) => email = value.email);
     return email;
   }
+
+  Future<bool> isVerified() async {
+    bool verified;
+    await _auth.currentUser().then((value) => verified = value.isEmailVerified);
+    return verified;
+  }
 }
 
 class User {

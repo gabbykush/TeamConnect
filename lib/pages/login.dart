@@ -25,12 +25,11 @@ class _LoginState extends State<Login> {
         child: Column(
           children: [
             Container(
-                margin: EdgeInsets.all(50),
-                child: Center(child: Text("ConnectNY Logo")),
-                width: 150,
-                height: 100,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.black))),
+              margin: EdgeInsets.all(5),
+              child: Center(child: Image.asset('lib/assets/connect_logo.png')),
+              width: 250,
+              height: 200,
+            ),
             LoginForm(),
           ],
         ),
