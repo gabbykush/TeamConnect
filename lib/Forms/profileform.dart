@@ -35,6 +35,11 @@ class _ProfileFormState extends State<ProfileForm> {
           profilePic = profile.imageUrl != ''
               ? profile.imageUrl
               : 'lib/assets/icon-profile-22.jpg';
+          institution = profile.institution;
+          major = profile.major;
+          year = profile.year;
+          birthLoc = profile.birthLoc;
+          currentLoc = profile.currentLoc;
 
           return Form(
             key: _formKey,
@@ -71,9 +76,9 @@ class _ProfileFormState extends State<ProfileForm> {
                   profilePadding(
                     TextFormField(
                       decoration: profileDecoration("Institution"),
-                      validator: (val) {
-                        return val.isEmpty ? "Enter a new Institution" : null;
-                      },
+                      // validator: (val) {
+                      //   return val.isEmpty ? "Enter a new Institution" : null;
+                      // },
                       onChanged: (value) => institution = value,
                     ),
                   ),
@@ -84,9 +89,9 @@ class _ProfileFormState extends State<ProfileForm> {
                         Expanded(
                           child: TextFormField(
                             decoration: profileDecoration("Major"),
-                            validator: (val) {
-                              return val.isEmpty ? "Enter a new Major" : null;
-                            },
+                            // validator: (val) {
+                            //   return val.isEmpty ? "Enter a new Major" : null;
+                            // },
                             onChanged: (value) => major = value,
                           ),
                         ),
@@ -96,9 +101,9 @@ class _ProfileFormState extends State<ProfileForm> {
                         Expanded(
                           child: TextFormField(
                             decoration: profileDecoration("Year"),
-                            validator: (val) {
-                              return val.isEmpty ? "Enter a new Year" : null;
-                            },
+                            // validator: (val) {
+                            //   return val.isEmpty ? "Enter a new Year" : null;
+                            // },
                             onChanged: (value) => year = value,
                           ),
                         ),
@@ -108,20 +113,20 @@ class _ProfileFormState extends State<ProfileForm> {
                   profilePadding(
                     TextFormField(
                       decoration: profileDecoration("Birth Place"),
-                      validator: (val) {
-                        return val.isEmpty ? "Enter a new birth place" : null;
-                      },
+                      // validator: (val) {
+                      //   return val.isEmpty ? "Enter a new birth place" : null;
+                      // },
                       onChanged: (value) => birthLoc = value,
                     ),
                   ),
                   profilePadding(
                     TextFormField(
                       decoration: profileDecoration("Current Location"),
-                      validator: (val) {
-                        return val.isEmpty
-                            ? "Enter a new current location"
-                            : null;
-                      },
+                      // validator: (val) {
+                      //   return val.isEmpty
+                      //       ? "Enter a new current location"
+                      //       : null;
+                      // },
                       onChanged: (value) => currentLoc = value,
                     ),
                   ),

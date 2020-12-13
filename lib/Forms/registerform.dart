@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/general/resources/routes.dart';
@@ -68,7 +69,9 @@ class _RegisterFormState extends State<RegisterForm> {
             loginPadding(TextFormField(
               decoration: loginDecoration("Email"),
               validator: (val) {
-                return val.isEmpty ? "Enter email" : null;
+                return EmailValidator.validate(val)
+                    ? null
+                    : 'Enter a valid email';
               },
               onChanged: (value) => email = value,
             )),
@@ -86,6 +89,7 @@ class _RegisterFormState extends State<RegisterForm> {
               validator: (val) {
                 return val.length != 10 ? 'Enter a valid phone number' : null;
               },
+              keyboardType: TextInputType.number,
               onChanged: (value) => phone = int.parse(value),
             )),
             RaisedButton(

@@ -121,8 +121,9 @@ class _ProfileCreationFormState extends State<ProfileCreationForm> {
                         year,
                         birthLoc,
                         currentLoc);
-                    Navigator.pop(context);
-                  }
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                  } else
+                    print('Not working');
                 },
                 child: Text('Create'),
               ),

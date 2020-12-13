@@ -6,6 +6,7 @@ import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/Forms/profileform.dart';
 import 'package:teamconnect/Services/collections.dart';
 import 'package:teamconnect/Services/database.dart';
+import 'package:teamconnect/Widgets/loading_screen.dart';
 import 'package:teamconnect/general/resources/routes.dart';
 import 'package:teamconnect/pages/profilesettings.dart';
 
@@ -22,67 +23,53 @@ class _ProfileDisplayState extends State<ProfileDisplay> {
     final user = Provider.of<User>(context);
     final _auth = AuthService();
 
-    void _profileSettings() {
-      showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          builder: (context) {
-            return Container(
-              child: ProfileForm(),
-            );
-          });
-    }
+    String profilePic = 'lib/assets/icon-profile-22.jpg';
 
-    return StreamBuilder<Object>(
-        stream: DatabaseService(uid: user.uid).profile,
-        builder: (context, snapshot) {
-          Profile userProfile = snapshot.data;
-
-          String profilePic = 'lib/assets/icon-profile-22.jpg';
-
-          return Column(
-            children: [
-              Container(
-                child: Column(children: [
-                  //Profile Pic
-                  Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 10),
-                    child: Center(
-                      child: Image(
-                        image: AssetImage(profilePic),
-                      ),
-                    ),
-                    width: 150,
-                    height: 100,
-                  ),
-                  //First Name, Last Name
-                  GetName(),
-                  //Change Profile Settings Button
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(Routes.profileSettings);
-                      },
-                      child: Icon(
-                        Icons.settings,
-                        color: Colors.black,
-                      )),
-                ]),
-              ),
-              ProfileCard(),
-              AccountCard(),
-              RaisedButton(
-                onPressed: () async {
-                  _auth.signOut();
-                },
-                color: Colors.yellow[600],
-                child: Text(
-                  "Log Out",
-                  style: TextStyle(color: Colors.white),
+    return Column(
+      children: [
+        Container(
+          child: Column(children: [
+            //Profile Pic
+            Container(
+              margin: EdgeInsets.only(top: 50, bottom: 10),
+              child: Center(
+                child: Image(
+                  image: AssetImage(profilePic),
                 ),
               ),
-            ],
-          );
-        });
+              width: 150,
+              height: 100,
+            ),
+            //First Name, Last Name
+            GetName(),
+            //Change Profile Settings Button
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Routes.profileSettings);
+                },
+                child: Icon(
+                  Icons.settings,
+                  color: Colors.black,
+                )),
+          ]),
+        ),
+        ProfileCard(),
+        AccountCard(),
+        RaisedButton(
+          onPressed: () async {
+            LoadingScreen();
+            Navigator.popUntil(context, (route) => route.isFirst);
+            _auth.signOut();
+          },
+          color: Colors.yellow[600],
+          child: Text(
+            "Log Out",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    );
+    ;
   }
 }
 
