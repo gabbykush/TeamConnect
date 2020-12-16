@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutterapp222/pages/orderpage2.dart';
-import 'package:flutterapp222/pages/list.dart';
+import 'package:teamconnect/pages/food/orderpage2.dart';
 
 //import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 //import 'package:teamconnect/general/resources/dimension.dart';
@@ -27,12 +25,16 @@ class _FoodTabPageState extends State<FoodTabPage> {
                 border: Border.all(
                   color: Colors.black,
                 )),
-            child: Center(child: Text('''
+            child: Center(
+                child: Text(
+              '''
                           Chick-Fil-A
               
     250 West 55th Street Manhattan,NY
     
-    718-922-5563''', style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold),)),
+    718-922-5563''',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            )),
           ),
           SizedBox(
             height: 25,
@@ -65,8 +67,10 @@ class _FoodTabPageState extends State<FoodTabPage> {
               children: <Widget>[
                 GestureDetector(
                   onDoubleTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FoodCheckoutOnePage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FoodCheckoutOnePage()));
                   },
                   child: Container(
                     child: Image.network(

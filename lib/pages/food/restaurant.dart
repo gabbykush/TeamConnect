@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
-import 'package:flutterapp222/pages/foodMenu.dart';
+import 'package:teamconnect/pages/food/foodMenu.dart';
 
 //Main Food Page/Starting point
-
 
 class FoodTabPage extends StatefulWidget {
   @override
@@ -13,9 +12,8 @@ class FoodTabPage extends StatefulWidget {
 }
 
 class _FoodTabPageState extends State<FoodTabPage> {
-@override
+  @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       appBar: AppBar(
         title: Text("List of Nearby Resteraunts"),
@@ -92,8 +90,7 @@ class Lists extends StatelessWidget {
         discount: null,
         image:
             "https://example2178.files.wordpress.com/2016/01/hk01.jpg?w=326&h=179"),
-
-          Item(
+    Item(
         title: 'Burger King',
         catagory: "Fast Food",
         place: "327 W 42nd Street",
@@ -101,8 +98,7 @@ class Lists extends StatelessWidget {
         discount: null,
         image:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Burger_King_logo.svg/1200px-Burger_King_logo.svg.png"),
-
-            Item(
+    Item(
         title: 'Wendys',
         catagory: "Fast Food",
         place: "938 8th Ave",
@@ -161,11 +157,13 @@ class Lists extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     GestureDetector(
-                  onDoubleTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FoodMenu()));
-                  },
-                  child: Text(
+                      onDoubleTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FoodMenu()));
+                      },
+                      child: Text(
                         item.title,
                         style: TextStyle(
                             color: Colors.deepOrange,

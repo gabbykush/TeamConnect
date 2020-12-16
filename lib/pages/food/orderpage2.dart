@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp222/pages/restaurant.dart';
-import 'package:flutterapp222/pages/paymentoption.dart';
+import 'package:teamconnect/pages/food/paymentoption.dart';
 
 //import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 //import 'package:flutter_ui_challenges/core/presentation/res/colors.dart';
@@ -12,7 +11,6 @@ final priceTextStyle = TextStyle(
 );
 
 class FoodCheckoutOnePage extends StatelessWidget {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,13 +119,14 @@ class FoodCheckoutOnePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10.0),
-              GestureDetector(onDoubleTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Payment()));
-                  },
-                              child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
+              GestureDetector(
+                onDoubleTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Payment()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 32.0, vertical: 8.0),
                   child: RaisedButton(
                     padding: const EdgeInsets.all(16.0),
                     elevation: 0,
