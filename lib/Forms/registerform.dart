@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/general/resources/routes.dart';
 import 'package:teamconnect/pages/profile.dart';
