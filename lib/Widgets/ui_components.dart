@@ -37,9 +37,8 @@ Consumer buildHeader(
           text: actionText,
           style: store.activeThemeData.primaryClickableTextStyle().copyWith(
                 decoration: TextDecoration.underline,
-                fontSize: 10,
+                fontSize: 20,
               ),
-          // fontSize: FontStyle.fontSizes.checkBoxTextSize),
           recognizer: TapGestureRecognizer()..onTap = onActionPressed,
         );
 
@@ -65,20 +64,47 @@ Consumer buildHeader(
       );
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Text(
-          title,
-          style: store.activeThemeData.textTitleStyle(),
-        ),
-        SizedBox(height: AppDimensions.mediumSpacing),
-        Visibility(
-          visible: subtitle.isNotEmpty,
-          child: _buildSubtitle(
-              subtitle, subtitleActionText, onSubtitleActionTextPressed),
-        )
-      ],
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.secondaryAccent,
+        borderRadius: BorderRadius.circular(AppDimensions.modalRadius),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 10.0,
+            width: 10,
+            color: AppColors.secondaryAccent,
+          ),
+          Text(
+            title,
+            style: store.activeThemeData.textTitleStyle(),
+          ),
+          Container(
+            height: 10.0,
+            width: 1000.0,
+            color: AppColors.secondaryAccent,
+          ),
+          Container(
+            height: 2.0,
+            width: 300.0,
+            color: AppColors.primaryAccent,
+          ),
+          Container(
+            height: 15.0,
+            width: 1000.0,
+            color: AppColors.secondaryAccent,
+          ),
+          Visibility(
+            visible: subtitle.isNotEmpty,
+            child: _buildSubtitle(
+                subtitle, subtitleActionText, onSubtitleActionTextPressed),
+          ),
+          SizedBox(height: AppDimensions.smallMargin),
+          SizedBox(height: AppDimensions.smallMargin),
+        ],
+      ),
     );
   });
 }
@@ -93,7 +119,7 @@ Future<T> showCustomModalBottomSheet<T>({
   bool isDismissible = true,
   bool enableDrag = true,
 }) {
-  // var theme = Provider.of<General>(context, listen: false).activeThemeData;
+  var theme = Provider.of<General>(context, listen: false).activeThemeData;
 
   Widget _content() {
     final mediaQuery = MediaQuery.of(context);
@@ -121,7 +147,7 @@ Future<T> showCustomModalBottomSheet<T>({
                     height: AppDimensions.defaultPadding,
                   ),
                   Center(
-                      //  child: Images.iconPopupLine,
+                      // child: Images.iconPopupLine,
                       ),
                 ],
               ),
@@ -129,7 +155,7 @@ Future<T> showCustomModalBottomSheet<T>({
           ],
         ),
         decoration: BoxDecoration(
-          //color: theme.secondarySwatch(),
+          color: theme.secondarySwatch(),
           borderRadius: BorderRadius.only(
             topLeft: const Radius.circular(AppDimensions.modalRadius),
             topRight: const Radius.circular(AppDimensions.modalRadius),
@@ -164,22 +190,10 @@ Widget buildToggleGroup(
         onOptionSelected(int index)) =>
     ToggleSwitch(
       cornerRadius: AppDimensions.buttonCornerRadius,
-      activeBgColor: generalProvider.activeThemeData.secondaryAccentColor(),
-      activeFgColor:
-          generalProvider.activeThemeData.textSecondaryButtonStyle().color,
-      inactiveBgColor: generalProvider.activeThemeData.switchBackgroundColor(),
-      inactiveFgColor:
-          generalProvider.activeThemeData.textSecondaryButtonStyle().color,
-      // activeTextStyle: generalProvider.activeThemeData
-      //     .textPrimaryButtonStyle()
-      //     .copyWith(
-      //         fontSize: FontStyle.fontSizes.smallTextSize,
-      //         color: AppColors.textMain),
-      // inactiveTextStyle: generalProvider.activeThemeData
-      //     .textPrimaryButtonStyle()
-      //     .copyWith(
-      //         fontSize: FontStyle.fontSizes.smallTextSize,
-      //         color: AppColors.textMain),
+      activeBgColor: AppColors.secondaryAccent,
+      activeFgColor: AppColors.primaryAccent,
+      inactiveBgColor: AppColors.lightGray,
+      inactiveFgColor: AppColors.primaryAccent,
       initialLabelIndex: initialSelectedIndex,
       minWidth: itemMinWidth,
       labels: values,

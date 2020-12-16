@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primaryAccent = Color(0xFF1849D1);
-  static const Color secondaryAccent = Color(0xFFFFFFFF);
+  static const Color secondaryAccent = Colors.yellow;
+  static Color lightGray = Colors.grey[300];
+  static Color lightBlue = Colors.blue[100];
+
   static const Color primarySwatch = Color.fromRGBO(243, 244, 244, 1);
   static const Color secondarySwatch = Color(0xFFFFFFFF);
   static const Color error = Color.fromRGBO(229, 73, 73, 1);
