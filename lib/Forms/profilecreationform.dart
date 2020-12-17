@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/Services/database.dart';
+import 'package:teamconnect/general/resources/routes.dart';
 
 class ProfileCreationForm extends StatefulWidget {
   @override
@@ -121,7 +123,7 @@ class _ProfileCreationFormState extends State<ProfileCreationForm> {
                         year,
                         birthLoc,
                         currentLoc);
-                    Navigator.popUntil(context, (route) => route.isFirst);
+                    Navigator.pushNamed(context, Routes.groupTab);
                   } else
                     print('Not working');
                 },

@@ -10,10 +10,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  firebase_storage: ^3.1.5
-  firebase_core: ^0.4.4+3
-  firebase_auth: ^0.16.0
-  cloud_firestore: ^0.13.5
+  firebase_storage: ^5.2.0
+  firebase_core: ^0.5.3
+  firebase_auth: ^0.18.4
+  cloud_firestore: ^0.14.4
   intl: any
   analyzer: ^0.39.15
   provider: ^4.1.3

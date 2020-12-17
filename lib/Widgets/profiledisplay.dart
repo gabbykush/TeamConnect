@@ -162,7 +162,7 @@ class AccountCard extends StatefulWidget {
 
 class _AccountCardState extends State<AccountCard> {
   final _auth = AuthService();
-  Future<String> email;
+  String email;
 
   @override
   void initState() {
@@ -180,45 +180,40 @@ class _AccountCardState extends State<AccountCard> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             Account account = snapshot.data;
-            return FutureBuilder<String>(
-                future: email,
-                builder: (context, emailSnapshot) {
-                  return Card(
-                    color: Colors.white,
-                    margin: EdgeInsets.all(10),
-                    child: Container(
-                        height: 80,
+
+            return Card(
+              color: Colors.white,
+              margin: EdgeInsets.all(10),
+              child: Container(
+                  height: 80,
+                  child: Row(
+                    children: [
+                      //Email
+                      Container(
+                        margin: EdgeInsets.all(15),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            //Email
-                            Container(
-                              margin: EdgeInsets.all(15),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.mail),
-                                  emailSnapshot.hasData
-                                      ? Text(emailSnapshot.data)
-                                      : Text("no email?"),
-                                ],
-                              ),
-                            ),
-                            //Phone Number
-                            Container(
-                              margin: EdgeInsets.all(15),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.phone),
-                                  Text(account.phone.toString()),
-                                ],
-                              ),
-                            )
-                            //Phone number
+                            Icon(Icons.mail),
+                            Text(email),
                           ],
-                        )),
-                  );
-                });
+                        ),
+                      ),
+                      //Phone Number
+                      Container(
+                        margin: EdgeInsets.all(15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.phone),
+                            Text(account.phone.toString()),
+                          ],
+                        ),
+                      )
+                      //Phone number
+                    ],
+                  )),
+            );
           }
           return Card();
         });
