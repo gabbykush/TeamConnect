@@ -12,6 +12,10 @@ class AuthService {
     return _auth.authStateChanges();
   }
 
+  Stream<User> get userChanges {
+    return _auth.userChanges();
+  }
+
   // Stream<String> get onAuthStateChanged {
   //   return _auth.onAuthStateChanged.map((FirebaseUser user) => user?.uid);
   // }
@@ -60,6 +64,8 @@ class AuthService {
           .updateAccountData(firstName, lastName, phone);
       //DatabaseService(uid: user.uid).updateProfileData("", "", "", "", "", "");
 
+      await user.sendEmailVerification();
+
       return userCredential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -100,6 +106,18 @@ class AuthService {
     String email;
     email = _auth.currentUser.email;
     return email;
+  }
+
+  bool isVerified() {
+    bool verified;
+    try {
+      _auth.userChanges().listen((User user) {
+        user.emailVerified ? verified = true : verified = false;
+      });
+    } on Exception catch (e) {
+      return false;
+    }
+    return verified;
   }
 
   // Future<bool> isVerified() async {
