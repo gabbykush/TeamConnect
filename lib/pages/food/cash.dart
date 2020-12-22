@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:credit_card_input_form/credit_card_input_form.dart';
-import 'package:flutterapp222/pages/orderpage2.dart';
-import 'package:flutterapp222/pages/restaurant.dart';
 
 class Cash extends StatelessWidget {
   //static final String path = "lib/src/pages/lists/list1.dart";
@@ -28,8 +25,6 @@ class Cash extends StatelessWidget {
             "You're all set! Present the amount due for the driver!",
             style: TextStyle(fontSize: 38),
           )),
-          
-
         ],
       ),
     );
