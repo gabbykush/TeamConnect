@@ -51,11 +51,13 @@ class MyApp extends StatelessWidget {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
                   theme: ThemeData(
-                    canvasColor:
-                        generalProvider.activeThemeData.secondarySwatch(),
+//                    canvasColor:
+//                        generalProvider.activeThemeData.secondarySwatch(),
                     fontFamily: defaultFontFamily,
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
+                    primaryColor: Colors.yellow[600],
+                    canvasColor: Colors.cyan[50],
                   ),
                   routes: Routes.getRoutes(),
                   home: AuthProvider(),
