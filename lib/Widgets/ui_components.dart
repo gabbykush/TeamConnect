@@ -219,7 +219,7 @@ KeyboardActionsConfig defaultKeyboardConfig(
             onTap: () => node.unfocus(),
             child: Container(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppDimensions.mediumPadding,
+                horizontal: AppDimensions.largePadding,
               ),
               child: Text(
                 "Done",

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:teamconnect/Widgets/line_chart.dart';
-import 'package:teamconnect/Widgets/text_and_amount_widget.dart';
 import 'package:teamconnect/Widgets/ui_components.dart';
 import 'package:teamconnect/general/resources/app_themes.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
@@ -104,7 +101,10 @@ class _EventCardState extends State<EventCard> {
                         )
                       ],
                     ),
-                    _buildCharts(theme, context, widget.buildCharts),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: _buildCharts(theme, context, widget.buildCharts),
+                    )
                   ],
                 ),
               )),
@@ -159,27 +159,29 @@ class _EventCardState extends State<EventCard> {
     var values = ['going', 'ignore', 'maybe'];
     var generalProvider = Provider.of<General>(context, listen: false);
 
-    return Column(children: [
-      buildToggleGroup(
-          generalProvider, _unitLinkTimeSelectedIndex(), values, width,
-          (value) {
-        setState(() {
-          switch (value) {
-            case 0:
-              _chartMode = ChartMode.going;
-              break;
-            case 1:
-              _chartMode = ChartMode.ignore;
-              break;
-            case 2:
-              _chartMode = ChartMode.maybe;
-              break;
-            default:
-              break;
-          }
-        });
-      }),
-    ]);
+    return Container(
+      child: Column(children: [
+        buildToggleGroup(
+            generalProvider, _unitLinkTimeSelectedIndex(), values, width,
+            (value) {
+          setState(() {
+            switch (value) {
+              case 0:
+                _chartMode = ChartMode.going;
+                break;
+              case 1:
+                _chartMode = ChartMode.ignore;
+                break;
+              case 2:
+                _chartMode = ChartMode.maybe;
+                break;
+              default:
+                break;
+            }
+          });
+        }),
+      ]),
+    );
   }
 
   int _unitLinkTimeSelectedIndex() {
