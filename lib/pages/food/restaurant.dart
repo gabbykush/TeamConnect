@@ -15,22 +15,25 @@ class FoodTabPage extends StatefulWidget {
 class _FoodTabPageState extends State<FoodTabPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("List of Nearby Resteraunts"),
-        backgroundColor: Colors.deepOrangeAccent,
-        elevation: 2,
-        actions: <Widget>[
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Icon(Icons.filter_list),
-          )
-        ],
-      ),
-      body: Lists(),
-    );
-  }
-}
+    return Container(
+      child: Lists());}}
+
+
+//       appBar: AppBar(
+//         title: Text("List of Nearby Resteraunts"),
+//         backgroundColor: Colors.deepOrangeAccent,
+//         elevation: 2,
+//         actions: <Widget>[
+//           Container(
+//             padding: EdgeInsets.all(10),
+//             child: Icon(Icons.filter_list),
+//           )
+//         ],
+//       ),
+//       body: Lists(),
+//     );
+//   }
+// }
 
 class Item {
   final String title;

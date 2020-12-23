@@ -3,8 +3,9 @@ import 'package:teamconnect/general/styles/colors.dart';
 import 'package:teamconnect/pages/events.dart';
 import 'package:teamconnect/pages/food/foodMenu.dart';
 import 'package:teamconnect/pages/groups.dart';
-import 'package:teamconnect/pages/homepage.dart';
 import 'package:teamconnect/pages/profile.dart';
+import 'package:teamconnect/pages/food/restaurant.dart';
+
 
 class BottomNavigationConnect extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _BottomNavigationConnect extends State<BottomNavigationConnect> {
   List<Widget> _widgetOptions = <Widget>[
     GroupsPage(),
     EventPage(),
-    FoodMenu(),
+    FoodTabPage(),
     ProfilePage()
   ];
 

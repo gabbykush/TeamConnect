@@ -3,12 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teamconnect/Authentication/auth.dart';
-import 'package:teamconnect/Forms/profileform.dart';
 import 'package:teamconnect/Services/collections.dart';
 import 'package:teamconnect/Services/database.dart';
 import 'package:teamconnect/Widgets/loading_screen.dart';
 import 'package:teamconnect/general/resources/routes.dart';
-import 'package:teamconnect/pages/profilesettings.dart';
 
 class ProfileDisplay extends StatefulWidget {
   @override
