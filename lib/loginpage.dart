@@ -16,6 +16,7 @@ class LogInPage extends StatelessWidget {
   }
 }
 
+//
 class LoginBody extends StatelessWidget {
   const LoginBody({
     Key key,
@@ -24,11 +25,25 @@ class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ElevatedButton(
-        onPressed: (){
-          Navigator.pushNamed(context, LoginSuccessPage.id);
-        }, 
-        child: Text("Log In"))
-    );
+        child: Column(
+      children: [
+        TextFormField(
+          decoration: InputDecoration(labelText: 'Username'),
+        ),
+        TextFormField(
+          decoration: InputDecoration(labelText: 'Password'),
+        ),
+        ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, LoginSuccessPage.id);
+            },
+            child: Text("LogIn")),
+        ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('Back'))
+      ],
+    ));
   }
 }
