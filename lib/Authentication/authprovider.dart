@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:teamconnect/Authentication/auth.dart';
 import 'package:teamconnect/Services/collections.dart';
 import 'package:teamconnect/Services/database.dart';
+import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 import 'package:teamconnect/Widgets/loading_screen.dart';
 import 'package:teamconnect/pages/emailverificationpage.dart';
 import 'package:teamconnect/pages/homepage.dart';
@@ -57,7 +58,7 @@ class _AuthProviderState extends State<AuthProvider> {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         if (snapshot.data)
-                          return GroupPage();
+                          return BottomNavigationConnect();
                         else
                           return ProfileCreation();
                       } else

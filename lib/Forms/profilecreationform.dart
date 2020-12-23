@@ -123,7 +123,7 @@ class _ProfileCreationFormState extends State<ProfileCreationForm> {
                         year,
                         birthLoc,
                         currentLoc);
-                    Navigator.pushNamed(context, Routes.groupTab);
+                    Navigator.pushNamed(context, Routes.bottomnavbar);
                   } else
                     print('Not working');
                 },

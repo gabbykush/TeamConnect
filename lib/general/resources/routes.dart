@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 import 'package:teamconnect/pages/events.dart';
 import 'package:teamconnect/pages/food/restaurant.dart';
 import 'package:teamconnect/pages/homepage.dart';
@@ -20,6 +21,7 @@ class Routes {
   static const String profileSettings = "/profilesettings";
   static const String profileCreation = "/profileCreation";
   static const String chatScreen = '/messenger';
+  static const String bottomnavbar = '/bottomnavigationbar';
 
   static Map<String, WidgetBuilder> getRoutes() {
     return {
@@ -32,6 +34,7 @@ class Routes {
       register: (context) => Register(),
       profileSettings: (context) => ProfileSettings(),
       profileCreation: (context) => ProfileCreation(),
+      bottomnavbar: (context) => BottomNavigationConnect(),
     };
   }
 }
