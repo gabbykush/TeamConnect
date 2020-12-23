@@ -1,42 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:teamconnect/Authentication/auth.dart';
 
-import '../Authentication/auth.dart';
-import '../Authentication/auth.dart';
 
-class Login extends StatefulWidget {
-  
+
+class Register extends StatefulWidget {
+ 
   final Function toggleView;
-  Login({this.toggleView});
+  Register({this.toggleView});
+ 
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
+  
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
   String error = '';
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[100],
-        title: Text('Sign In'),
+        title: Text('Register'),
         actions: <Widget>[
           FlatButton.icon(
             onPressed: () {
               widget.toggleView();
             }, 
             icon: Icon(Icons.person), 
-            label: Text('Register'))
+            label: Text('Sign In'))
         ],
       ),
       body: Container(
         child: Form(
-           key: _formKey,
+          key: _formKey,
           child: Column(
             children: <Widget>[
               SizedBox(height: 20.0),
@@ -59,13 +61,13 @@ class _LoginState extends State<Login> {
               SizedBox(height: 20.0),
               RaisedButton(
                 color: Colors.green[400],
-                child: Text('Sign In'),
+                child: Text('Register'),
                 onPressed: () async {
                   if(_formKey.currentState.validate()){
-                    dynamic result = await _auth.login(email, password);
+                    dynamic result = await _auth.register(email, password);
                     if(result == null){
                       setState(() {
-                        error = 'Incorrect email/password';
+                        error = 'email is not valid';
                       });
                     }
                   }
