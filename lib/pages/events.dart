@@ -38,8 +38,22 @@ class _EventPageState extends State<EventPage> {
                 ),
                 EventCard(
                     title: "TKE hot sauce event",
-                    subtitle: "Manhattan campus",
+                    subtitle: "Long Island Campus ",
                     time: "April 30"),
+                SizedBox(
+                  height: AppDimensions.cardsSpacing,
+                ),
+                EventCard(
+                    title: "Discovery day",
+                    subtitle: "Long Island Campus ",
+                    time: "May 3rd"),
+                SizedBox(
+                  height: AppDimensions.cardsSpacing,
+                ),
+                EventCard(
+                    title: "Career fair",
+                    subtitle: "Manhattan campus",
+                    time: "May 5th"),
               ],
             ),
           ),
@@ -47,40 +61,3 @@ class _EventPageState extends State<EventPage> {
     ;
   }
 }
-
-// buildCard() {
-//   return GestureDetector(
-//     onTap: widget.onPressed,
-//     child: Container(
-//       child: SafeArea(
-//         child: Container(
-//             decoration: BoxDecoration(
-//                 color: theme.secondaryAccentColor(),
-//                 borderRadius: BorderRadius.all(
-//                     Radius.circular(_Constant.cardCornerRadius))),
-//             child: Padding(
-//               padding: const EdgeInsets.only(
-//                   top: AppDimensions.defaultPadding,
-//                   left: AppDimensions.defaultPadding,
-//                   right: AppDimensions.defaultPadding),
-//               child: Column(
-//                 mainAxisSize: MainAxisSize.min,
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   SizedBox(height: AppDimensions.cardsSpacing),
-//                   buildHeader(
-//                     context,
-//                     subtitle: "group 1",
-//                     title: "group 2",
-//                   ),
-//                   SizedBox(height: AppDimensions.mediumSpacing),
-//                   _buildFundsHardcoded(widget.buildFunds),
-//                   SizedBox(height: AppDimensions.mediumSpacing),
-//                   _buildCharts(theme, context, widget.buildCharts),
-//                   _buildFunds(context, widget.fundsList),
-//                 ],
-//               ),
-//             )),
-//       ),
-//     ),
-//   );
