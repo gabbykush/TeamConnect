@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:teamconnect/Widgets/bottom_nav_bar.dart';
 import 'package:teamconnect/general/resources/dimension.dart';
+import 'package:teamconnect/general/styles/colors.dart';
 
 import 'foodMenu.dart';
 
@@ -15,25 +16,22 @@ class FoodTabPage extends StatefulWidget {
 class _FoodTabPageState extends State<FoodTabPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Lists());}}
-
-
-//       appBar: AppBar(
-//         title: Text("List of Nearby Resteraunts"),
-//         backgroundColor: Colors.deepOrangeAccent,
-//         elevation: 2,
-//         actions: <Widget>[
-//           Container(
-//             padding: EdgeInsets.all(10),
-//             child: Icon(Icons.filter_list),
-//           )
-//         ],
-//       ),
-//       body: Lists(),
-//     );
-//   }
-// }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("List of Nearby Resteraunts"),
+        backgroundColor: AppColors.primaryAccent,
+        elevation: 2,
+        actions: <Widget>[
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Icon(Icons.filter_list),
+          )
+        ],
+      ),
+      body: Lists(),
+    );
+  }
+}
 
 class Item {
   final String title;
@@ -134,7 +132,7 @@ class Lists extends StatelessWidget {
                 child: item.discount == null
                     ? Container()
                     : Container(
-                        color: Colors.deepOrange,
+                        color: AppColors.secondaryAccent,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
@@ -170,7 +168,7 @@ class Lists extends StatelessWidget {
                       child: Text(
                         item.title,
                         style: TextStyle(
-                            color: Colors.deepOrange,
+                            color: AppColors.primaryAccent,
                             fontWeight: FontWeight.w700,
                             fontSize: 17),
                       ),

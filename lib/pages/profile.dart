@@ -27,10 +27,10 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return StreamProvider<Profile>.value(
       value: DatabaseService().profile,
-      child: Container(
-          color: Colors.cyan[50],
+      child: Scaffold(
+          //color: Colors.cyan[50],
           //bottomNavigationBar: BottomNavigationConnect(index: 3),
-          child: SafeArea(
+          body: SafeArea(
               child: Padding(
             padding: const EdgeInsets.only(
                 top: AppDimensions.defaultPadding,
